@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FaceAttend — Smart Face Recognition Attendance System powered by AI. Automated, accurate, and effortless attendance tracking.">
+  <meta name="keywords" content="face recognition, attendance, AI, biometric, automated attendance">
+  <meta name="author" content="FaceAttend">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="FaceAttend — Smart Face Recognition Attendance">
+  <meta property="og:description" content="Automated attendance tracking powered by AI face recognition technology.">
+  <meta property="og:type" content="website">
+  <title>FaceAttend — Smart Face Recognition Attendance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">FaceAttend</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="register.html" class="nav-link">Register</a>
+      <a href="admin.html" class="nav-link">Login</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Smart Face Recognition<br>Attendance</h1>
+    <p class="subtitle">Automated attendance tracking powered by AI. Simply look at the camera and let technology do the rest.</p>
+  </section>
+
+  <!-- Camera Section -->
+  <section class="camera-section slide-up">
+    <div class="glass-card-static" style="padding: 0; overflow: hidden; border-radius: var(--radius-xl);">
+      <div class="camera-container">
+        <video id="camera-feed" autoplay playsinline muted></video>
+        <canvas id="face-canvas"></canvas>
+      </div>
+    </div>
+    <div class="camera-controls">
+      <button id="camera-toggle" class="btn btn-primary btn-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+          <circle cx="12" cy="13" r="4"/>
+        </svg>
+        <span id="camera-btn-text">Start Camera</span>
+      </button>
+      <div class="camera-status">
+        <span class="status-dot" id="camera-dot"></span>
+        <span id="camera-status-text">Camera inactive</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unknown Face Alert -->
+  <div id="unknown-alert" class="unknown-alert hidden">
+    <span class="alert-text">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      Unknown Face Detected
+    </span>
+    <button id="register-unknown-btn" class="btn btn-primary btn-sm">Register This Face</button>
+  </div>
+
+  <!-- Today's Quick Stats -->
+  <section class="quick-stats slide-up">
+    <h2>Today's Attendance</h2>
+    <div class="stats-grid">
+      <div class="stats-card">
+        <div class="stats-icon green">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <div class="stats-value" id="home-stat-present">--</div>
+        <div class="stats-label">Present</div>
+      </div>
+      <div class="stats-card">
+        <div class="stats-icon red">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+          </svg>
+        </div>
+        <div class="stats-value" id="home-stat-absent">--</div>
+        <div class="stats-label">Absent</div>
+      </div>
+      <div class="stats-card">
+        <div class="stats-icon violet">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="stats-value" id="home-stat-total">--</div>
+        <div class="stats-label">Total Students</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 FaceAttend. All rights reserved. Powered by AI Face Recognition.</p>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

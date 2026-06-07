@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FaceAttend — Verify your email address with OTP.">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>Verify Email — FaceAttend</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="login-page">
+    <div class="login-card" style="max-width: 460px;">
+      <!-- Logo -->
+      <div class="login-logo">
+        <div class="logo-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <h1>Verify Your Email</h1>
+        <p id="otp-subtitle">Enter the 6-digit code sent to your email</p>
+      </div>
+
+      <!-- OTP Form -->
+      <div class="glass-card-static" style="position: relative;">
+        <!-- Loading Overlay -->
+        <div id="otp-loading" class="login-overlay hidden">
+          <div class="loading-spinner lg"></div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="otp-error" class="login-error hidden"></div>
+
+        <!-- Verification Form -->
+        <div id="otp-form-container">
+          <div class="otp-email-display" id="otp-email-display"></div>
+
+          <form id="otp-form" autocomplete="off">
+            <div class="otp-input-group" id="otp-inputs">
+              <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="0" autofocus>
+              <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="1">
+              <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="2">
+              <div class="otp-separator">—</div>
+              <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="3">
+              <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="4">
+              <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="5">
+            </div>
+
+            <button type="submit" id="verify-btn" class="btn btn-primary form-submit" disabled>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Verify Email
+            </button>
+          </form>
+
+          <div class="otp-resend">
+            <span id="resend-timer" class="resend-timer"></span>
+            <button type="button" id="resend-btn" class="resend-link" disabled>Resend Code</button>
+          </div>
+        </div>
+
+        <!-- Success State -->
+        <div id="otp-success" class="register-success hidden">
+          <div class="success-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <h3>Email Verified!</h3>
+          <p>Your account is now active. You can log in.</p>
+          <a href="admin.html" class="btn btn-primary" style="margin-top: 16px; display: inline-flex; text-decoration: none;">
+            Sign In Now
+          </a>
+        </div>
+      </div>
+
+      <p style="text-align: center; margin-top: var(--space-lg); font-size: 13px; color: var(--text-muted);">
+        <a href="register.html" style="color: var(--text-accent);">&larr; Back to Registration</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="js/verify-otp.js"></script>
+</body>
+</html>

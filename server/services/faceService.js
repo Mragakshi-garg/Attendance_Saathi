@@ -3,7 +3,7 @@
 const fetch = require('node-fetch');
 const FormData = require('form-data');
 
-const PYTHON_SERVICE_URL = 'http://localhost:5001';
+const PYTHON_SERVICE_URL = process.env.PYTHON_SERVICE_URL || 'https://face-attendance-python-1w3a.onrender.com';
 
 // ─── POST /detect — Detect faces and return encodings ───────────────────────
 async function detectAndEncode(base64Image) {

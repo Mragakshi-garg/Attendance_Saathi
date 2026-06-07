@@ -15,6 +15,7 @@ const studentRoutes = require('./routes/students');
 const attendanceRoutes = require('./routes/attendance');
 const adminRoutes = require('./routes/admin');
 const profileRoutes = require('./routes/profile');
+const faceRoutes = require('./routes/face');
 
 // ─── App setup ──────────────────────────────────────────────────────────────
 const app = express();
@@ -50,6 +51,7 @@ app.use('/api/students', studentRoutes);
 app.use('/api/attendance', attendanceRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/profile', profileRoutes);
+app.use('/api/face', faceRoutes);
 
 // ─── Health check ───────────────────────────────────────────────────────────
 app.get('/api/health', (_req, res) => {

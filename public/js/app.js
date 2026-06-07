@@ -175,7 +175,7 @@
       const frameBase64 = captureFrame();
 
       // Send frame to Python microservice for detection
-      const detectRes = await fetch('http://localhost:5001/detect', {
+      const detectRes = await fetch('/api/face/detect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ image: frameBase64 }),
@@ -208,7 +208,7 @@
             // Compare against known faces
             const known = await getKnownEncodings();
 
-const compareRes = await fetch('http://localhost:5001/compare', {
+const compareRes = await fetch('/api/face/compare', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

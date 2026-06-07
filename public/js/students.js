@@ -384,7 +384,7 @@
       const formData = new FormData();
       formData.append('photo', blob, 'face.jpg');
 
-      const res = await fetch('http://localhost:5001/encode', {
+      const res = await fetch('/api/face/encode', {
         method: 'POST',
         body: formData,
       });

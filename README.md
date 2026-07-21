@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>📸 FaceAttend</h1>
+  <h1>📸 Attendance Saathi</h1>
   <p><strong>A Production-Level Face Recognition Attendance System</strong></p>
 </div>
 
